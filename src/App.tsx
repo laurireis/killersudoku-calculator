@@ -74,95 +74,100 @@ function App() {
     <>
       <h1>Killer Sudoku Calculator</h1>
 
-      <label htmlFor="targetSum">Target Sum: </label>
-      <input
-        type="number"
-        id="targetSum"
-        min={1}
-        max={45}
-        value={targetSum}
-        onChange={(e) => setTargetSum(parseInt(e.target.value, 10))}
-      />
+      <div>
+        <label htmlFor="targetSum">Target Sum: </label>
+        <input
+          type="number"
+          id="targetSum"
+          min={1}
+          max={45}
+          value={targetSum}
+          onChange={(e) => setTargetSum(parseInt(e.target.value, 10))}
+        />
+      </div>
 
-      <button onClick={clearSelection}>Clear selection</button>
-      <br />
+      <div>
+        <label htmlFor="cageSize">Cage Size: </label>
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((i: number) => {
+          return (
+            <span key={`cageSize-${i}`}>
+              <input
+                type="radio"
+                name="cageSize"
+                className="radio"
+                value={i}
+                checked={cageSize === i}
+                onChange={() => setCageSize(i)}
+              />
+              {i}
+            </span>
+          )
+        })}
+      </div>
 
-      <label htmlFor="cageSize">Cage Size: </label>
-      {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((i: number) => {
-        return (
-          <span key={`cageSize-${i}`}>
-            <input
-              type="radio"
-              name="cageSize"
-              value={i}
-              checked={cageSize === i}
-              onChange={() => setCageSize(i)}
-            />
-            {i}
-          </span>
-        )
-      })}
+      <div className="includedNumbers">
+        <label htmlFor="includedNumbers">Included Numbers: </label>
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((i: number) => {
+          return (
+            <span key={`includedNumbers-${i}`}>
+              <input
+                type="checkbox"
+                name="includedNumbers"
+                className="checkbox"
+                value={i}
+                checked={includedNumbers.includes(i) || false}
+                onChange={() => {
+                  setIncludedNumbers((prev) =>
+                    prev.includes(i)
+                      ? prev.filter((num) => num !== i)
+                      : [...prev, i]
+                  )
+                }}
+              />
+              {i}
+            </span>
+          )
+        })}
+      </div>
 
-      <br />
-
-      <label htmlFor="includedNumbers">Included Numbers: </label>
-      {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((i: number) => {
-        return (
-          <span key={`includedNumbers-${i}`}>
-            <input
-              type="checkbox"
-              name="includedNumbers"
-              value={i}
-              checked={includedNumbers.includes(i) || false}
-              onChange={() => {
-                setIncludedNumbers((prev) =>
-                  prev.includes(i)
-                    ? prev.filter((num) => num !== i)
-                    : [...prev, i]
-                )
-              }}
-            />
-            {i}
-          </span>
-        )
-      })}
-
-      <br />
-
-      <label htmlFor="excludedNumbers">Excluded Numbers: </label>
-      {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((i: number) => {
-        return (
-          <span key={`excludedNumbers-${i}`}>
-            <input
-              type="checkbox"
-              name="excludedNumbers"
-              value={i}
-              checked={excludedNumbers.includes(i) || false}
-              onChange={() => {
-                setExcludedNumbers((prev) =>
-                  prev.includes(i)
-                    ? prev.filter((num) => num !== i)
-                    : [...prev, i]
-                )
-              }}
-            />
-            {i}
-          </span>
-        )
-      })}
-
-      <br />
+      <div className="excludedNumbers">
+        <label htmlFor="excludedNumbers">Excluded Numbers: </label>
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((i: number) => {
+          return (
+            <span key={`excludedNumbers-${i}`}>
+              <input
+                type="checkbox"
+                name="excludedNumbers"
+                className="checkbox"
+                value={i}
+                checked={excludedNumbers.includes(i) || false}
+                onChange={() => {
+                  setExcludedNumbers((prev) =>
+                    prev.includes(i)
+                      ? prev.filter((num) => num !== i)
+                      : [...prev, i]
+                  )
+                }}
+              />
+              {i}
+            </span>
+          )
+        })}
+      </div>
 
       <button onClick={solve}>Show results</button>
 
-      <h2>Results:</h2>
-      <pre>
-        {results.length === 0
-          ? 'No possible combinations.'
-          : results
-              .map((result) => `${result.id}: ${result.values.join(', ')}`)
-              .join('\n')}
-      </pre>
+      <div className="results">
+        <h2>Results:</h2>
+        <pre>
+          {results.length === 0
+            ? 'No possible combinations.'
+            : results
+                .map((result) => `${result.id}: ${result.values.join(', ')}`)
+                .join('\n')}
+        </pre>
+        <button onClick={clearSelection}>Clear selection</button>
+      </div>
     </>
   )
 }
