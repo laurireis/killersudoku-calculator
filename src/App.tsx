@@ -1,10 +1,6 @@
 import './App.css'
 import { useState } from 'react'
-
-interface Result {
-  id: number
-  values: number[]
-}
+import { Result } from './types/result'
 
 function App() {
   const [targetSum, setTargetSum] = useState<number>(1)
