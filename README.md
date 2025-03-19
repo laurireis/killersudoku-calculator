@@ -1,30 +1,78 @@
-# React + TypeScript + Vite
+<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<a id="readme-top"></a>
 
-Currently, two official plugins are available:
+<!--
+*** Thanks for checking out the Best-README-Template. If you have a suggestion
+*** that would make this better, please fork the repo and create a pull request
+*** or simply open an issue with the tag "enhancement".
+*** Don't forget to give the project a star!
+*** Thanks again! Now go create something AMAZING! :D
+-->
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<div>
+  <h3 align="center">Killer Sudoku Calculator</h3>
 
-## Expanding the ESLint configuration
+  <p align="center">
+    A calculator to calculate all possible combinations for cages in the game killer sudoku.
+    <br />
+    <a href="https://example.com/"><strong>Try it out yourself »</strong></a>
+  </p>
+</div>
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## About The Project
 
-- Configure the top-level `parserOptions` property like this:
+![Picture of the apps front page][ui-url]
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+Killer Sudoku Calculator lets you calculate all possible combinations for cages.
+You can set the target sum required by the cage and the size of the cage according to the puzzle.
+If you have already figured out some numbers that have to be inside the cage, you can simply add them to the calculation by ticking the boxes of the needed numbers.
+This works vice versa with the numbers that can't be inside the cage.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### Built With
+
+- [![React][React.js]][React-url]
+- [![Vite][Vite.io]][Vite-url]
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Getting Started
+
+To get a local copy up and running follow these simple example steps.
+
+### Prerequisites
+
+- npm
+
+```sh
+npm install npm@latest -g
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### Installation
+
+1. Clone the repo
+
+```sh
+git clone https://github.com/laurireis/killersudoku-calculator
+```
+
+2. Install NPM packages
+
+```sh
+npm install
+```
+
+3. Run the app
+
+```sh
+npm run dev
+```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+[ui-url]: images/ui.png
+[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[React-url]: https://react.dev/
+[Vite.io]: https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=Vite&logoColor=white
+[Vite-url]: https://vite.dev/
