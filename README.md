@@ -16,7 +16,7 @@
   <p align="center">
     A calculator to calculate all possible combinations for cages in the game killer sudoku.
     <br />
-    <a href="https://example.com/"><strong>Try it out yourself »</strong></a>
+    <a href="https://laurireis.github.io/killersudoku-calculator/" target="_blank"><strong>Try it out yourself »</strong></a>
   </p>
 </div>
 
