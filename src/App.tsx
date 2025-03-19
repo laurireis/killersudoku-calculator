@@ -62,11 +62,19 @@ function App() {
     return results
   }
 
+  const clearSelection = () => {
+    setTargetSum(1)
+    setCageSize(1)
+    setIncludedNumbers([])
+    setExcludedNumbers([])
+    setResults([])
+  }
+
   return (
     <>
       <h1>Killer Sudoku Calculator</h1>
 
-      <label htmlFor="targetSum">Target Sum:</label>
+      <label htmlFor="targetSum">Target Sum: </label>
       <input
         type="number"
         id="targetSum"
@@ -76,9 +84,10 @@ function App() {
         onChange={(e) => setTargetSum(parseInt(e.target.value, 10))}
       />
 
+      <button onClick={clearSelection}>Clear selection</button>
       <br />
 
-      <label htmlFor="cageSize">Cage Size:</label>
+      <label htmlFor="cageSize">Cage Size: </label>
       {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((i: number) => {
         return (
           <span key={`cageSize-${i}`}>
@@ -96,7 +105,7 @@ function App() {
 
       <br />
 
-      <label htmlFor="includedNumbers">Included Numbers:</label>
+      <label htmlFor="includedNumbers">Included Numbers: </label>
       {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((i: number) => {
         return (
           <span key={`includedNumbers-${i}`}>
@@ -104,6 +113,7 @@ function App() {
               type="checkbox"
               name="includedNumbers"
               value={i}
+              checked={includedNumbers.includes(i) || false}
               onChange={() => {
                 setIncludedNumbers((prev) =>
                   prev.includes(i)
@@ -119,7 +129,7 @@ function App() {
 
       <br />
 
-      <label htmlFor="excludedNumbers">Excluded Numbers:</label>
+      <label htmlFor="excludedNumbers">Excluded Numbers: </label>
       {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((i: number) => {
         return (
           <span key={`excludedNumbers-${i}`}>
@@ -127,6 +137,7 @@ function App() {
               type="checkbox"
               name="excludedNumbers"
               value={i}
+              checked={excludedNumbers.includes(i) || false}
               onChange={() => {
                 setExcludedNumbers((prev) =>
                   prev.includes(i)
